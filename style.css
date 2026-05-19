@@ -7,6 +7,10 @@
 
 body {
     background-image: url(../images/bg.png);
+    background-repeat: no-repeat; /* 반복 방지 */
+    background-size: cover;       /* 화면 꽉 채움 */
+    background-position: center;  /* 중앙 정렬 */
+    background-attachment: fixed; /* 스크롤 고정 */
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
@@ -26,10 +30,20 @@ header {
 }
 
 header .logo {
+    display: flex;
+    align-items: center; /* 로고와 글자의 세로축 중앙 정렬 */
+    gap: 15px;           /* 이미지와 글자 사이의 간격 지정 */
     font-size: 22px;
     font-weight: bold;
     letter-spacing: 3px;
     font-family: 'Georgia', serif;
+}
+
+/* 로고 이미지 크기 및 형태 유지 설정 */
+.logo-img {
+    height: 35px;        /* 상단 바 높이에 맞는 적절한 세로 크기 */
+    width: auto;         /* 가로 비율 자동 유지 */
+    object-fit: contain; /* 이미지 왜곡 방지 */
 }
 
 header nav a {
@@ -52,6 +66,9 @@ header nav a:hover {
     justify-content: space-between;
     padding: 0 80px;
     height: 100vh;
+    max-width: 1440px; /* 양옆으로 무한히 벌어지는 현상 차단 */
+    margin: 0 auto;    /* 넓은 화면에서도 콘텐츠 덩어리를 중앙에 정렬 */
+    width: 100%;       
 }
 
 .hero-text {
@@ -59,19 +76,42 @@ header nav a:hover {
     z-index: 10;
 }
 
+/* 반응형 타이틀 글자 크기 수정 */
 .hero-text h1 {
-    font-size: 52px;
+    font-size: clamp(36px, 4vw, 52px); /* 화면 크기에 맞춰 글자 크기 유동적 조절 */
     line-height: 1.2;
     margin-bottom: 25px;
     font-family: 'Georgia', serif;
     letter-spacing: 1px;
 }
 
+/* 반응형 본문 글자 크기 수정 */
 .hero-text p {
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px); /* 미디어 쿼리 없이 글자 축소 방지 */
     color: #a5a5a5;
     margin-bottom: 45px;
     line-height: 1.6;
+}
+
+
+.gold-glow {
+    /* 은은한 골드 그라디언트 텍스트 */
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* 골드 빛 일렁임 애니메이션 효과 */
+    animation: goldShimmer 3s infinite alternate;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); /* 기본 그림자 */
+}
+
+@keyframes goldShimmer {
+    0% {
+        text-shadow: 0 0 5px rgba(212, 175, 55, 0.3), 0 0 10px rgba(212, 175, 55, 0.1);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.3);
+    }
 }
 
 /* 디스커버 버튼 스타일 */
@@ -138,3 +178,25 @@ header nav a:hover {
         opacity: 0.6;
     }
 }
+
+header .logo.flash-active {
+    animation: logoGoldFlash 0.8s ease-out;
+}
+
+@keyframes logoGoldFlash {
+    0% {
+        position: relative;
+        box-shadow: 0 0 0px rgba(212, 175, 55, 0);
+        filter: brightness(1);
+    }
+    30% {
+        /* 순간적으로 골드 그라데이션 느낌의 강한 빛을 사방으로 방출 */
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), inset 0 0 15px rgba(253, 246, 186, 0.6);
+        filter: brightness(1.4); /* 로고 자체도 순간적으로 밝아짐 */
+    }
+    100% {
+        box-shadow: 0 0 0px rgba(212, 175, 55, 0);
+        filter: brightness(1);
+    }
+}
+

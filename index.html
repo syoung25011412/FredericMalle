@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Editions de Parfums Frédéric Malle</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .thumb {
+            position: absolute;
+            left: 50%;
+            bottom: 300px;        /* 화면 하단에서의 여백 조절 */
+            display: flex;
+            transform: translateX(-50%);
+            z-index: 20;         /* 다른 그래픽 요소보다 무조건 앞으로 배치 */
+        }
+        .thumb li {
+            list-style: none;
+            margin: 0 15px;
+            cursor: pointer;
+            transition: .5s; 
+            /* 0.3s 300ms */
+        }
+        .thumb li:hover {
+            transform: translateY(-20px);
+        }           
+        .thumb li img {
+            width: 80px;         /* 기존 300px에서 하단 바에 어울리는 크기로 축소 */
+        height: 80px;
+        object-fit: cover;   /* 이미지가 비율에 맞게 꽉 차도록 설정 */
+        border: 2px solid rgba(245, 202, 9, 0.459); /* 고급스러운 골드 테두리 추가 */
+        border-radius: 10px;
+        }
+        
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">FRÉDÉRIC MALLE</div>
+        <div class="logo" onclick="resetToMain()">
+        <img src="images/logo.jpeg" alt="Logo" class="logo-img">
+        <span>FRÉDÉRIC MALLE</span>
+    </div>
         <nav>
             <a href="#">Explore</a>
             <a href="#">Collection</a>
@@ -18,15 +49,45 @@
 
     <main class="hero-section">
         <div class="hero-text">
-            <h1>Portrait of a Lady:<br>More than a scent,<br>an emotion.</h1>
+            <h1><span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.</h1>
             <p>Turkish rose, patchouli, incense. A masterpiece of perfumery.</p>
             <button class="cta-btn">Discover More</button>
         </div>
-        
+        <ul class="thumb">
+            <li><img src="./images/img1.png" alt="" onclick="imgSlider('./images/img1.png')"></li>
+            <li><img src="./images/img2.png" alt="" onclick="imgSlider('./images/img2.png')"></li>
+            <li><img src="./images/img3.png" alt="" onclick="imgSlider('./images/img3.png')"></li>
+        </ul>
         <div class="hero-image-container">
             <div class="hologram-glow"></div>
-            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1000&auto=format&fit=crop" alt="Portrait of a Lady" class="perfume-img">
+            <img src="images/img.png" alt="Portrait of a Lady" class="perfume-img">
         </div>
+        
     </main>
+    <script>
+        function imgSlider(anything){
+        // 메인 향수 이미지의 속성을 클릭한 이미지 경로로 변경함
+        document.querySelector('.perfume-img').src = anything;
+    }
+    function resetToMain() {
+        const logo = document.querySelector('header .logo');
+        const perfumeImg = document.querySelector('.perfume-img');
+        
+        // 1. 로고 반짝임 애니메이션 클래스 초기화 후 재적용
+        logo.classList.remove('flash-active');
+        void logo.offsetWidth; // 브라우저 흐름 강제 재인식 트릭
+        logo.classList.add('flash-active');
+        
+        // 2. 메인 화면 이미지를 처음 오리지널 이미지(images/img.png)로 되돌림
+        if (perfumeImg) {
+            perfumeImg.classList.remove('loading');
+            void perfumeImg.offsetWidth;
+            
+            // 메인 화면으로 돌아갈 때도 부드럽게 위로 떠오르는 모션 재활용
+            perfumeImg.src = 'images/img.png'; 
+            perfumeImg.classList.add('loading');
+        }
+    }
+    </script>
 </body>
 </html>
