@@ -5,14 +5,12 @@
 }
 
 body {
-    background-image: url(../images/bg.png);
-    background-repeat: no-repeat; 
-    background-size: cover;      
-    background-position: center; 
-    background-attachment: fixed; 
+    background: url('../images/back.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 header {
@@ -43,6 +41,13 @@ header .logo {
     object-fit: contain; 
 }
 
+header nav {
+    display: flex;
+    justify-content: flex-end;    
+    align-items: center;
+    margin-left: auto;             
+}
+
 header nav a {
     color: #ffffff;
     text-decoration: none;
@@ -57,23 +62,23 @@ header nav a:hover {
 }
 
 .hero-section {
-   min-height: 100vh;
-    padding: 120px 80px 180px 80px;  
     display: flex;
-    flex-direction: row;
-    justify-content: center;        
     align-items: center;
-    gap: 80px;
+    justify-content: space-between;
+    padding: 0 80px;
+    height: 100vh;
+    background: transparent;
+    position: relative;
+    flex-direction: row-reverse; 
 }
 
 .hero-text {
-    max-width: 800px;
-    display: inline-block; 
-    flex-direction: column;
-    background: transparent !important; 
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0;
+    width: 45%;
+    z-index: 10;
+    padding-left: 40px; 
+    padding-right: 0;
+    margin-left: 90px;
+    
 }
 
 
@@ -134,12 +139,14 @@ header nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;                  
-    height: auto;
+    width: 45%;
+    height: 80vh;
+    padding-left: 0; 
+}
 
 .hologram-glow {
     position: absolute;
-    width: 700px;
+    width: 500px;
     height: 600px;
     background: radial-gradient(circle, rgba(212,175,55,0.35) 0%, rgba(186,140,51,0.15) 45%, rgba(0,0,0,0) 70%);
     filter: blur(25px);
@@ -209,6 +216,8 @@ header .logo.flash-active {
   text-align: center;
   display: flex;       
     justify-content: center;
+     pointer-events: none;
+    background: transparent;
 }
 
   .loading span {

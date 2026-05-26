@@ -5,6 +5,11 @@
     <title>Editions de Parfums Frédéric Malle</title>
     <link rel="stylesheet" href="style.css">
     <style>
+       body {
+        background: url('../images/back.jpg') no-repeat center center fixed !important;
+        background-size: cover !important;
+}
+
         .thumb {
         position: fixed;
         left: 50%;
@@ -42,15 +47,14 @@
         .thumb li:hover img {
         border-color: rgba(253, 246, 186, 0.9);
     }
-        
     </style>
 </head>
 <body>
     <header>
         <div class="logo" onclick="resetToMain()">
-        <img src="images/logo.jpeg" alt="Logo" class="logo-img">
+        <img src="images/logo.jpeg" class="logo-img">
         <span>FRÉDÉRIC MALLE</span>
-    </div>
+</div>
         <nav>
             <a href="#">Explore</a>
             <a href="#">Collection</a>
@@ -85,46 +89,106 @@
     
         <div class="hero-text">
             <h1><span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.</h1>
-            <p>Turkish rose, patchouli, incense. A masterpiece of perfumery.</p>
-            <button class="cta-btn">Discover More</button>
+            <p>Rose, patchouli, sandalwood, incense</p>
+            <button class="cta-btn" onclick="window.open('https://www.fredericmalle.com/', '_blank')">Discover More</button>
         </div>
         
     </h1>
         <ul class="thumb">
-    <li><img src="./images/img1.png" alt="" onclick="imgSlider('./images/img1.png', 'linear-gradient(135deg, rgba(186,140,51,0.2) 0%, rgba(0,0,0,0.6) 100%)')"></li>
-    <li><img src="./images/img2.png" alt="" onclick="imgSlider('./images/img2.png', 'linear-gradient(135deg, rgba(240,167,188,0.2) 0%, rgba(0,0,0,0.6) 100%)')"></li>
-    <li><img src="./images/img3.png" alt="" onclick="imgSlider('./images/img3.png', 'linear-gradient(135deg, rgba(227,63,109,0.2) 0%, rgba(0,0,0,0.6) 100%)')"></li>
-    </ul>        
+    <li>
+<img src="./images/img1.png"
+onclick="imgSlider(
+'./images/img1.png',
+'linear-gradient(135deg, rgba(186,140,51,0.2) 0%, rgba(0,0,0,0.6) 100%)',
+'url(\'./images/aa1.png\')',
+
+'Portrait of a Lady:<br>More than a scent,<br>an emotion.',
+'Rose, patchouli, sandalwood, incense. A masterpiece of perfumery.'
+)">
+</li>
+
+
+<li>
+<img src="./images/img2.png"
+onclick="imgSlider(
+'./images/img2.png',
+'linear-gradient(135deg, rgba(240,167,188,0.2) 0%, rgba(0,0,0,0.6) 100%)',
+'url(\'images/bb1.png\')',
+
+'ROSE TONNERRE:<br>White flowers,<br>pure addiction.',
+'Rose, wine lees, truffle blend, honey, patchouli'
+)">
+</li>
+
+
+<li>
+<img src="./images/img3.png"
+onclick="imgSlider(
+'./images/img3.png',
+'linear-gradient(135deg, rgba(227,63,109,0.2) 0%, rgba(0,0,0,0.6) 100%)',
+'url(\'images/cc1.png\')',
+
+'Acne Studios:<br>Warm skin,<br>deep desire.',
+'Aldehydes, Rose, Peach, Vanilla, Sandalwood, Musk'
+)">
+</li>
+</ul>       
     </main>
     <script>
         function imgSlider(anything){
         document.querySelector('.perfume-img').src = anything;
     }
     function resetToMain() {
-        const logo = document.querySelector('header .logo');
-        const perfumeImg = document.querySelector('.perfume-img');
-        
+    const logo = document.querySelector('header .logo');
+    const perfumeImg = document.querySelector('.perfume-img');
+    const heroText = document.querySelector('.hero-text');
+    const mainTitle = document.querySelector('.hero-text h1');
+    const mainDesc = document.querySelector('.hero-text p');
+
+    if (logo) {
         logo.classList.remove('flash-active');
         void logo.offsetWidth; 
         logo.classList.add('flash-active');
-        
-        if (perfumeImg) {
-            perfumeImg.classList.remove('loading');
-            void perfumeImg.offsetWidth;
-            
-            perfumeImg.src = 'images/img.png'; 
-            perfumeImg.classList.add('loading');
-        }
+    }
+    
+    if (perfumeImg) {
+        perfumeImg.src = 'images/img.png'; 
     }
 
-
-    function imgSlider(anything, bgColor){
-        document.querySelector('.perfume-img').src = anything;
-        const heroText = document.querySelector('.hero-text');
-        if(heroText && bgColor) {
-            heroText.style.background = bgColor;
-        }
+    if (mainTitle) {
+        mainTitle.innerHTML = '<span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.';
     }
+
+    if (mainDesc) {
+        mainDesc.innerText = 'Rose, patchouli, sandalwood, incense';
+    }
+    
+    if (heroText) {
+        heroText.style.background = 'transparent';
+        heroText.style.padding = '0px'; 
+    }
+}
+
+
+    function imgSlider(anything, bgColor, bgImg, title, desc) {
+
+    document.querySelector('.perfume-img').src = anything;
+
+    const heroText = document.querySelector('.hero-text');
+
+    document.querySelector('.hero-text h1').innerHTML = title;
+
+    document.querySelector('.hero-text p').innerText = desc;
+
+    if(heroText){
+        heroText.style.background =
+        `${bgColor}, ${bgImg}`;
+
+        heroText.style.backgroundSize='cover';
+        heroText.style.borderRadius='15px';
+        heroText.style.padding='100px';
+    }
+}
 
     function resetToMain() {
         const logo = document.querySelector('header .logo');
