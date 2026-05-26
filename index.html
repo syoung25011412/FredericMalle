@@ -5,23 +5,24 @@
     <title>Editions de Parfums Frédéric Malle</title>
     <link rel="stylesheet" href="style.css">
     <style>
-       body {
-        background: url('../images/back.jpg') no-repeat center center fixed !important;
-        background-size: cover !important;
-}
+        body {
+            /* 경로를 현재 폴더 기준으로 수정 */
+            background: url('images/back.jpg') no-repeat center center fixed !important;
+            background-size: cover !important;
+        }
 
         .thumb {
-        position: fixed;
-        left: 50%;
-        bottom: 10vh;             
-        transform: translateX(-50%); 
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-        gap: 20px;               
-        padding: 0;
-        margin: 0;               
-        z-index: 999;
+            position: fixed;
+            left: 50%;
+            bottom: 10vh;             
+            transform: translateX(-50%); 
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            gap: 20px;               
+            padding: 0;
+            margin: 0;               
+            z-index: 999;
         }
 
         .thumb li {
@@ -29,63 +30,51 @@
             margin: 0;
             cursor: pointer;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            /* 0.3-5s 300ms */
         }
         .thumb li:hover {
             transform: translateY(-15px) scale(1.05);
         }           
         .thumb li img {
             width: 140px;         
-        height: 150px;
-        object-fit: cover;   
-        border: 2.3px solid rgba(245, 202, 9, 0.459); 
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        transition: border-color 0.4s;
+            height: 150px;
+            object-fit: cover;   
+            border: 2.3px solid rgba(245, 202, 9, 0.459); 
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.4s;
         }
 
         .thumb li:hover img {
-        border-color: rgba(253, 246, 186, 0.9);
-    }
+            border-color: rgba(253, 246, 186, 0.9);
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo" onclick="resetToMain()">
-        <img src="images/logo.jpeg" class="logo-img">
-        <span>FRÉDÉRIC MALLE</span>
-</div>
+            <img src="images/logo.jpeg" class="logo-img">
+            <span>FRÉDÉRIC MALLE</span>
+        </div>
         <nav>
             <a href="#">Explore</a>
             <a href="#">Collection</a>
             <a href="#">Story</a>
             <a href="#">Boutiques</a>
         </nav>
-        <div id="particles">
-    <div id="intro">
-    <h1>
-    <div class="loading">
-    <span>F</span>
-    <span>R</span>
-    <span>E</span>
-    <span>D</span>
-    <span>E</span>
-    <span>R</span>
-    <span>R</span>
-    <span>C</span><br>
-    <span>M</span>
-    <span>A</span>
-    <span>L</span>
-    <span>L</span>
-    <span>E</span>
-</div>
+        <div id="particles"></div>
+        <div id="intro">
+            <div class="loading">
+                <span>F</span><span>R</span><span>E</span><span>D</span><span>E</span><span>R</span><span>I</span><span>C</span><br>
+                <span>M</span><span>A</span><span>L</span><span>L</span><span>E</span>
+            </div>
+        </div>
     </header>
 
     <main class="hero-section">
         <div class="hero-image-container">
-        <div class="hologram-glow"></div>
-        <img src="images/img.png" alt="Portrait of a Lady" class="perfume-img">
-    </div>
+            <div class="hologram-glow"></div>
+            <img src="images/img.png" alt="Portrait of a Lady" class="perfume-img">
+        </div>
     
         <div class="hero-text">
             <h1><span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.</h1>
@@ -93,144 +82,84 @@
             <button class="cta-btn" onclick="window.open('https://www.fredericmalle.com/', '_blank')">Discover More</button>
         </div>
         
-    </h1>
         <ul class="thumb">
-    <li>
-<img src="./images/img1.png"
-onclick="imgSlider(
-'./images/img1.png',
-'linear-gradient(135deg, rgba(186,140,51,0.2) 0%, rgba(0,0,0,0.6) 100%)',
-'url(\'./images/aa1.png\')',
-
-'Portrait of a Lady:<br>More than a scent,<br>an emotion.',
-'Rose, patchouli, sandalwood, incense. A masterpiece of perfumery.'
-)">
-</li>
-
-
-<li>
-<img src="./images/img2.png"
-onclick="imgSlider(
-'./images/img2.png',
-'linear-gradient(135deg, rgba(240,167,188,0.2) 0%, rgba(0,0,0,0.6) 100%)',
-'url(\'images/bb1.png\')',
-
-'ROSE TONNERRE:<br>White flowers,<br>pure addiction.',
-'Rose, wine lees, truffle blend, honey, patchouli'
-)">
-</li>
-
-
-<li>
-<img src="./images/img3.png"
-onclick="imgSlider(
-'./images/img3.png',
-'linear-gradient(135deg, rgba(227,63,109,0.2) 0%, rgba(0,0,0,0.6) 100%)',
-'url(\'images/cc1.png\')',
-
-'Acne Studios:<br>Warm skin,<br>deep desire.',
-'Aldehydes, Rose, Peach, Vanilla, Sandalwood, Musk'
-)">
-</li>
-</ul>       
+            <li>
+                <img src="./images/img1.png" onclick="imgSlider('./images/img1.png', 'linear-gradient(135deg, rgba(186,140,51,0.2) 0%, rgba(0,0,0,0.6) 100%)', 'url(\'./images/aa1.png\')', 'Portrait of a Lady:<br>More than a scent,<br>an emotion.', 'Rose, patchouli, sandalwood, incense. A masterpiece of perfumery.')">
+            </li>
+            <li>
+                <img src="./images/img2.png" onclick="imgSlider('./images/img2.png', 'linear-gradient(135deg, rgba(240,167,188,0.2) 0%, rgba(0,0,0,0.6) 100%)', 'url(\'images/bb1.png\')', 'ROSE TONNERRE:<br>White flowers,<br>pure addiction.', 'Rose, wine lees, truffle blend, honey, patchouli')">
+            </li>
+            <li>
+                <img src="./images/img3.png" onclick="imgSlider('./images/img3.png', 'linear-gradient(135deg, rgba(227,63,109,0.2) 0%, rgba(0,0,0,0.6) 100%)', 'url(\'images/cc1.png\')', 'Acne Studios:<br>Warm skin,<br>deep desire.', 'Aldehydes, Rose, Peach, Vanilla, Sandalwood, Musk')">
+            </li>
+        </ul>       
     </main>
+
     <script>
-        function imgSlider(anything){
-        document.querySelector('.perfume-img').src = anything;
-    }
-    function resetToMain() {
-    const logo = document.querySelector('header .logo');
-    const perfumeImg = document.querySelector('.perfume-img');
-    const heroText = document.querySelector('.hero-text');
-    const mainTitle = document.querySelector('.hero-text h1');
-    const mainDesc = document.querySelector('.hero-text p');
+        function imgSlider(anything, bgColor, bgImg, title, desc) {
+            document.querySelector('.perfume-img').src = anything;
+            const heroText = document.querySelector('.hero-text');
+            document.querySelector('.hero-text h1').innerHTML = title;
+            document.querySelector('.hero-text p').innerText = desc;
 
-    if (logo) {
-        logo.classList.remove('flash-active');
-        void logo.offsetWidth; 
-        logo.classList.add('flash-active');
-    }
-    
-    if (perfumeImg) {
-        perfumeImg.src = 'images/img.png'; 
-    }
-
-    if (mainTitle) {
-        mainTitle.innerHTML = '<span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.';
-    }
-
-    if (mainDesc) {
-        mainDesc.innerText = 'Rose, patchouli, sandalwood, incense';
-    }
-    
-    if (heroText) {
-        heroText.style.background = 'transparent';
-        heroText.style.padding = '0px'; 
-    }
-}
-
-
-    function imgSlider(anything, bgColor, bgImg, title, desc) {
-
-    document.querySelector('.perfume-img').src = anything;
-
-    const heroText = document.querySelector('.hero-text');
-
-    document.querySelector('.hero-text h1').innerHTML = title;
-
-    document.querySelector('.hero-text p').innerText = desc;
-
-    if(heroText){
-        heroText.style.background =
-        `${bgColor}, ${bgImg}`;
-
-        heroText.style.backgroundSize='cover';
-        heroText.style.borderRadius='15px';
-        heroText.style.padding='100px';
-    }
-}
-
-    function resetToMain() {
-        const logo = document.querySelector('header .logo');
-        const perfumeImg = document.querySelector('.perfume-img');
-        const heroText = document.querySelector('.hero-text');
-        
-        logo.classList.remove('flash-active');
-        void logo.offsetWidth; 
-        logo.classList.add('flash-active');
-        
-        if (perfumeImg) {
-            perfumeImg.src = 'images/img.png'; 
+            if(heroText){
+                heroText.style.background = `${bgColor}, ${bgImg}`;
+                heroText.style.backgroundSize='cover';
+                heroText.style.borderRadius='15px';
+                heroText.style.padding='100px';
+            }
         }
-        if (heroText) {
-            heroText.style.background = 'transparent';
+
+        function resetToMain() {
+            const logo = document.querySelector('header .logo');
+            const perfumeImg = document.querySelector('.perfume-img');
+            const heroText = document.querySelector('.hero-text');
+            const mainTitle = document.querySelector('.hero-text h1');
+            const mainDesc = document.querySelector('.hero-text p');
+
+            logo.classList.remove('flash-active');
+            void logo.offsetWidth; 
+            logo.classList.add('flash-active');
+            
+            if (perfumeImg) {
+                perfumeImg.src = 'images/img.png'; 
+            }
+            if (heroText) {
+                heroText.style.background = 'transparent';
+                heroText.style.padding = '0';
+            }
+            if (mainTitle) {
+                mainTitle.innerHTML = '<span class="gold-glow">Portrait of a Lady:</span><br>More than a scent,<br>an emotion.';
+            }
+            if (mainDesc) {
+                mainDesc.innerText = 'Rose, patchouli, sandalwood, incense';
+            }
         }
-    }
 
-    const container = document.querySelector('.hero-image-container');
-    const card = document.querySelector('.perfume-img');
+        const container = document.querySelector('.hero-image-container');
+        const card = document.querySelector('.perfume-img');
 
-    container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left - (rect.width / 2);
-        const y = e.clientY - rect.top - (rect.height / 2);
-        const tiltX = (y / (rect.height / 2)) * -15; 
-        const tiltY = (x / (rect.width / 2)) * 15;  
-        card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
-        card.style.transition = 'transform 0.1s ease-out';
-    });
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left - (rect.width / 2);
+            const y = e.clientY - rect.top - (rect.height / 2);
+            const tiltX = (y / (rect.height / 2)) * -15; 
+            const tiltY = (x / (rect.width / 2)) * 15;  
+            card.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.05)`;
+            card.style.transition = 'transform 0.1s ease-out';
+        });
 
-    container.addEventListener('mouseleave', () => {
-        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-        card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-    });
+        container.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        });
 
-    window.addEventListener('load', () => {
-        const intro = document.getElementById('intro');
-        if (intro) {
-            intro.classList.add('fade-out');
-        }
-    });
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro');
+            if (intro) {
+                intro.classList.add('fade-out');
+            }
+        });
     </script>
 </body>
 </html>

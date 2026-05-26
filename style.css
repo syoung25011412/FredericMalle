@@ -5,7 +5,8 @@
 }
 
 body {
-    background: url('../images/back.jpg') no-repeat center center fixed !important;
+    /* 경로를 css 파일 기준으로 수정 */
+    background: url('images/back.jpg') no-repeat center center fixed !important;
     background-size: cover !important;
     color: #ffffff;
     font-family: 'Arial', sans-serif;
@@ -78,9 +79,7 @@ header nav a:hover {
     padding-left: 40px; 
     padding-right: 0;
     margin-left: 90px;
-    
 }
-
 
 .hero-text h1 {
     font-size: 54px;
@@ -90,14 +89,12 @@ header nav a:hover {
     letter-spacing: 1px;
 }
 
-
 .hero-text p {
     font-size: 18px;
     color: #a5a5a5;
     margin-bottom: 30px;
     line-height: 1.6;
 }
-
 
 .gold-glow {
     background: linear-gradient(to right, hsl(40, 50%, 50%), #fcf6ba, #b38728, #fbf5b7, #aa771c);
@@ -207,33 +204,33 @@ header .logo.flash-active {
 }
 
 #intro {
-  position: fixed;
-  left: 0;
-  top: 10%;
-  padding: 0 20px;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  display: flex;       
+    position: fixed;
+    left: 0;
+    top: 10%;
+    padding: 0 20px;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    display: flex;       
     justify-content: center;
-     pointer-events: none;
+    pointer-events: none;
     background: transparent;
 }
 
-  .loading span {
-  font-size: 80px;
-  font-weight: 700;
-  font-family: 'Georgia', serif;
-  display: inline-block;
-  margin: 0 -.04em;
+.loading span {
+    font-size: 80px;
+    font-weight: 700;
+    font-family: 'Georgia', serif;
+    display: inline-block;
+    margin: 0 -.04em;
     background: linear-gradient(to right, hsl(40, 50%, 50%), #fcf6ba, #b38728, #fbf5b7, #aa771c);
     background-size: 100% auto; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: goldShimmer 3s infinite alternate;
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); 
     animation: loading 1.6s infinite alternate ease-in-out, hologramShine 3s infinite linear;
 }
+
 .loading span:nth-child(2) { animation-delay: 0.1s; }
 .loading span:nth-child(3) { animation-delay: 0.2s; }
 .loading span:nth-child(4) { animation-delay: 0.3s; }
@@ -248,24 +245,12 @@ header .logo.flash-active {
 .loading span:nth-child(13) { animation-delay: 1.2s; }
 .loading span:nth-child(14) { animation-delay: 1.3s; }
 
-
-
-
 @keyframes loading {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.5);
-  }
-  
+    0% { transform: scale(1); }
+    100% { transform: scale(0.5); }
 }
 
 @keyframes hologramShine {
-    0% {
-        background-position: 0% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
